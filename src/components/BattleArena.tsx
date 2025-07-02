@@ -52,28 +52,28 @@ export const BattleArena = ({ monsters }: Props) => {
                 [first, second] = [m2, m1];
             }
 
-            const dano1 = Math.max(
+            const damage1 = Math.max(
                 1,
                 first.monster.attack - second.monster.defense
             );
 
-            let hp2 = second.currentHp - dano1;
+            let hp2 = second.currentHp - damage1;
 
             const logs: string[] = [
-                `${first.monster.name} atacou ${second.monster.name} causando ${dano1} de dano`
+                `${first.monster.name} atacou ${second.monster.name} causando ${damage1} de dano`
             ];
 
             let hp1 = first.currentHp;
 
             if (hp2 > 0) {
-                const dano2 = Math.max(
+                const damage2 = Math.max(
                     1,
                     second.monster.attack - first.monster.defense
                 );
 
-                hp1 = first.currentHp - dano2;
+                hp1 = first.currentHp - damage2;
                 logs.push(
-                    `${second.monster.name} atacou ${first.monster.name} causando ${dano2} de dano`
+                    `${second.monster.name} atacou ${first.monster.name} causando ${damage2} de dano`
                 );
             }
 
